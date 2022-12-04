@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-app.get('/discord/:id', (req, res) => {
+app.get('/discord/avatar/:id', (req, res) => {
     var userId = req.params.id;
     if (!userId) {res.status(403)};
     
@@ -18,6 +18,19 @@ app.get('/discord/:id', (req, res) => {
                 res.json({ url: `https://cdn.discordapp.com/avatars/${userId}/${response.avatar}` });
             };
         };
+    }));
+});
+
+app.get('/discord/:id', (req, res) => {
+    var userId = req.params.id;
+    if (!userId) {res.status(403)};
+    
+    fetch(`https://discord.com/api/v10/users/${userId}`, {
+    headers: {
+        Authorization: process.env.BOT_AUTH
+    }
+    }).then(data => data.json().then(response =>{
+        res.json(response);
     }));
 });
 

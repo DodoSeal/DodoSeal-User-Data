@@ -13,9 +13,9 @@ app.get('/discord/:id', (req, res) => {
         var avatar = response.avatar;
         if (avatar) {
             if (avatar.includes(`a_`)) {
-                res.send(`https://cdn.discordapp.com/avatars/${userId}/${response.avatar}.gif`);
+                res.json({ url: "https://cdn.discordapp.com/avatars/${userId}/${response.avatar}.gif" });
             } else {
-                res.send(`https://cdn.discordapp.com/avatars/${userId}/${response.avatar}`);
+                res.json({ url: "https://cdn.discordapp.com/avatars/${userId}/${response.avatar}" });
             };
         };
     }));

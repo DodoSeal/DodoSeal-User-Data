@@ -1,46 +1,14 @@
-const express = require('express');
+const express = require(`express`);
 const app = express();
 
-app.get('/discord/avatar/:id', (req, res) => {
-    var userId = req.params.id;
-    if (!userId) {res.status(403)};
-    
-    fetch(`https://discord.com/api/v10/users/${userId}`, {
-    headers: {
-        Authorization: process.env.BOT_AUTH
-    }
-    }).then(data => data.json().then(response =>{
-        var avatar = response.avatar;
-        if (avatar) {
-            if (avatar.includes(`a_`)) {
-                res.json({ url: `https://cdn.discordapp.com/avatars/${userId}/${response.avatar}.gif` });
-            } else {
-                res.json({ url: `https://cdn.discordapp.com/avatars/${userId}/${response.avatar}` });
-            };
-        };
-    }));
+app.get(`/*`, async (req, res) =>{
+    const reqUrl = req.url;
+    const fetchedData = await fetch(`https://poki.com` + reqUrl);
+    const contentType = fetchedData.headers.get(`content-type`);
+    const newBody = new Buffer.from(await fetchedData.arrayBuffer());
+    res.set(`Content-Type`, contentType.split(`;`)[0]);
+    res.status(fetchedData.status).write(newBody);
+    res.end();
 });
 
-app.get('/discord/:id', (req, res) => {
-    var userId = req.params.id;
-    if (!userId) {res.status(403)};
-    
-    fetch(`https://discord.com/api/v10/users/${userId}`, {
-    headers: {
-        Authorization: process.env.BOT_AUTH
-    }
-    }).then(data => data.json().then(response =>{
-        res.json(response);
-    }));
-});
-
-app.get('/roblox/:username', (req, res) => {
-    var username = req.params.username;
-    if (!username) {res.status(403)};
-    
-    fetch(`https://api.roblox.com/users/get-by-username?username=${username}`).then(data => data.json().then(response =>{
-        res.json(response);
-    }));
-});
-
-app.listen(3000);
+app.listen(80);

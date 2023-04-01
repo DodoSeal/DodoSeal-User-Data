@@ -1,5 +1,23 @@
 {
   "dependencies": {
     "express": "^4.18.2"
-  }
+  },
+  "name": "temp-cobalt-proxy",
+  "description": "A proxy for the poki.com game website.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DodoSeal/Temp-Cobalt-Proxy.git"
+  },
+  "author": "DodoSeal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DodoSeal/Temp-Cobalt-Proxy/issues"
+  },
+  "homepage": "https://github.com/DodoSeal/Temp-Cobalt-Proxy#readme"
 }

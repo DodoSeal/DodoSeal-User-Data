@@ -11,4 +11,4 @@ app.get(`/*`, async (req, res) =>{
     res.end();
 });
 
-app.listen(80);
+app.listen(process.env.PORT);

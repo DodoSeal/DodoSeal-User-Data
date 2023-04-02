@@ -1,4 +1,5 @@
-const express = require(`express`);
+import fetch from 'node-fetch';
+import express from 'express';
 const app = express();
 
 app.get(`/*`, async (req, res) =>{
@@ -11,4 +12,4 @@ app.get(`/*`, async (req, res) =>{
     res.end();
 });
 
-app.listen(process.env.PORT);
+app.listen(80 || process.env.PORT);

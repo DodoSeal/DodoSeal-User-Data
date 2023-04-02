@@ -12,4 +12,4 @@ app.get(`/*`, async (req, res) =>{
     res.end();
 });
 
-app.listen(80 || process.env.PORT);
+app.listen(process.env.PORT);

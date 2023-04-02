@@ -3,7 +3,7 @@
     "express": "^4.18.2",
     "node-fetch": "^3.3.1"
   },
-  "name": "temp-cobalt-proxy",
+  "name": "user-data",
   "description": "A proxy for the poki.com game website.",
   "version": "1.0.0",
   "main": "index.js",
@@ -20,5 +20,6 @@
   "bugs": {
     "url": "https://github.com/DodoSeal/Temp-Cobalt-Proxy/issues"
   },
-  "homepage": "https://github.com/DodoSeal/Temp-Cobalt-Proxy#readme"
+  "homepage": "https://github.com/DodoSeal/Temp-Cobalt-Proxy#readme",
+  "devDependencies": {}
 }

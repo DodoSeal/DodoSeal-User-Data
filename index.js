@@ -2,12 +2,12 @@ const express = require('express');
 const cors = require(`cors`);
 const app = express();
 
-var corsOptions = {
+/* var corsOptions = {
     origin: 'https://dodoseal.com',
     optionsSuccessStatus: 200
-}
+} */
 
-app.use(cors(corsOptions));
+app.use(cors(/* corsOptions */));
 
 app.get('/discord/avatar/:id', (req, res) => {
     var userId = req.params.id;
